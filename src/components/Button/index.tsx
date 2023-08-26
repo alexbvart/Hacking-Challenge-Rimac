@@ -1,14 +1,5 @@
 import React from 'react'
-
-interface ButtonProps {
-    isDirty: boolean;
-    isValid: boolean;
-    children: React.ReactNode;
-    type: TypeButtonInput;
-    className?: string;
-}
-
-type TypeButtonInput = "button" | "submit" | "reset" | undefined;
+import { ButtonProps } from '../../models/button-model';
 
 const Button : React.FC<ButtonProps> = ( {isDirty, isValid, children, type, className=''}) => {
     return (

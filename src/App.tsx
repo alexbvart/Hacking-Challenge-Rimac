@@ -1,6 +1,6 @@
 import './App.css'
 import Accordion from './components/Accordion'
-import { LoginForm } from './components/Form/LoginForm'
+import { LoginForm } from './pages/Home/components/Form/LoginForm'
 
 function App() {
 

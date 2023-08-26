@@ -1,16 +1,11 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm, FormProvider, SubmitHandler } from 'react-hook-form'
 import { schema } from './schemas/login-form-schema'
-import Input from './Input'
-import Button from '../Button'
+import { callEndpoint } from '../../services/call-endpoint'
+import Input from '../../../../components/Input'
+import Button from '../../../../components/Button'
+import { InputsForLogin } from '../../../../models/input-model'
 
-
-
-type Inputs = {
-    dni: string
-    cellPhone: string
-    licensePlate: string
-}
 
 export const LoginForm = () => {
 
@@ -36,8 +31,10 @@ export const LoginForm = () => {
     const cellPhoneWatch = watch('cellPhone') 
     const licensePlateWatch = watch('licensePlate') 
 
-    const onSubmit: SubmitHandler<Inputs> = async (data) => {
-        console.log({data})
+    const onSubmit: SubmitHandler<InputsForLogin> = async (data) => {
+        const result = await callEndpoint()
+        console.log(result);
+        reset();
     }
  
 
