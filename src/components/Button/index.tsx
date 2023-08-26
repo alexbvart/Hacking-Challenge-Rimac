@@ -6,8 +6,10 @@ const Button : React.FC<ButtonProps> = ( {isDirty, isValid, children, type, clas
         <div>
             <button
                 type={type}
-                disabled={!isDirty || !isValid }
-                className={`${className} btn btn-primary`}>
+                // disabled={!isDirty || !isValid}
+                {... ( (!isDirty || !isValid) ? { disabled: (!isDirty || !isValid) } : {} )}
+                className={`${className} btn btn-primary`}
+            >
                 <p>{children}</p>    
             </button>
 

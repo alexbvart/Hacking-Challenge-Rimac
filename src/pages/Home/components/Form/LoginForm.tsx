@@ -33,7 +33,6 @@ export const LoginForm = () => {
 
     const onSubmit: SubmitHandler<InputsForLogin> = async (data) => {
         const result = await callEndpoint()
-        console.log(result);
         reset();
     }
  
