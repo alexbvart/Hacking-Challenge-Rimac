@@ -1,4 +1,4 @@
-export interface UserModel {
+export interface EndpointUserModel {
   id: number;
   name: string;
   username: string;
@@ -7,6 +7,12 @@ export interface UserModel {
   phone: string;
   website: string;
   company: Company;
+}
+
+export interface UserModel {
+  id: number;
+  name: string;
+  email: string;
 }
 
 interface Company {
@@ -26,4 +32,21 @@ interface Address {
 interface Geo {
   lat: string;
   lng: string;
+}
+
+export interface UserStore {
+    dni: string;
+    setDni: (dni: string) => void;
+
+    cellPhone: string;
+    setCellPhone: (cellPhone: string) => void;
+
+    licensePlate: string;
+    setLicensePlate: (licensePlate: string) => void;
+
+    mailing: string;
+    setMailing: (mailing: string) => void;
+    
+    name: string;
+    setName: (name: string) => void;
 }

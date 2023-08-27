@@ -11,3 +11,5 @@ export const BASE_COVERAGE  :number =  20
 export const STOLEN_TIREE  :number = 15
 export const RUN_RED_LIGHT :number = 20
 export const RUN_OVER :number = 50
+
+export const URL_PUBLIC_API: string = "https://jsonplaceholder.typicode.com/users/4"

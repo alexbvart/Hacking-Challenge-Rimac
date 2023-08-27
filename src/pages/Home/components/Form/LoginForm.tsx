@@ -1,13 +1,17 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm, FormProvider, SubmitHandler } from 'react-hook-form'
 import { schema } from './schemas/login-form-schema'
-import { callEndpoint } from '../../services/call-endpoint'
 import Input from '../../../../components/Input'
 import Button from '../../../../components/Button'
 import { InputsForLogin } from '../../../../models/input-model'
+import { useUserStore } from '../../../../store/userStore'
 
 
 export const LoginForm = () => {
+
+    const setDni = useUserStore(state => state.setDni)
+    const setCellPhone = useUserStore(state => state.setCellPhone)
+    const setLicensePlate = useUserStore(state => state.setLicensePlate)
 
     const formMethods  = useForm({
         defaultValues: {
@@ -32,8 +36,14 @@ export const LoginForm = () => {
     const licensePlateWatch = watch('licensePlate') 
 
     const onSubmit: SubmitHandler<InputsForLogin> = async (data) => {
-        console.log(data);
-        await callEndpoint()
+
+        if (data) {
+            const {dni, cellPhone, licensePlate} = data
+
+            dni && setDni(data.dni)
+            cellPhone && setCellPhone(data.cellPhone)
+            licensePlate && setLicensePlate(data.licensePlate)
+        }
         reset();
     }
  

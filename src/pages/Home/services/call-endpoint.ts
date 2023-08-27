@@ -1,9 +1,13 @@
 import axios from "axios"
 import { UserModel } from "../../../models/user-model";
+import { createAdapterUser } from "../../../adapters/userAdapter";
 
-export const callEndpoint = async () : Promise<UserModel | any> => {
+export const fetchEndpoint = async (url: string) : Promise<UserModel | any> => {
     try {
-        return axios.get("https://jsonplaceholder.typicode.com/users/4").then(response => response.data);
+        const response = await axios.get(url).then(response => response.data);
+        const user = createAdapterUser(response)
+        return user;
+
     } catch (error) {
         return error        
     }

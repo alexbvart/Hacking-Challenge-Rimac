@@ -1,11 +1,21 @@
 import React, {useEffect} from 'react'
-
-import { MAX_AMOUNT_VEHICLE_PLAN, MIN_AMOUNT_VEHICLE_PLAN, STEP_AMOUNT_VEHICLE_PLAN, TOGGLE_AMOUNT_RUN_RED_LIGHT } from '../../../../utilities/constants';
+import useSWR from "swr";
+import { MAX_AMOUNT_VEHICLE_PLAN, MIN_AMOUNT_VEHICLE_PLAN, STEP_AMOUNT_VEHICLE_PLAN, TOGGLE_AMOUNT_RUN_RED_LIGHT, URL_PUBLIC_API } from '../../../../utilities/constants';
 import Checkbox from '../../../../components/Input/Checkbox';
 import { useVehiclePlanStore } from '../../../../store/vehiclePlan';
 import { updatePlanAmountType } from '../../../../models/plan-store-model';
+import { fetchEndpoint } from '../../../Home/services/call-endpoint';
 
 const FormPlan = () => {
+
+    
+    const { data, error, isLoading } = useSWR(URL_PUBLIC_API, fetchEndpoint)
+    if ( !error && !isLoading && data) {
+        console.log({ data, error, isLoading }, "xddd");
+        
+    }
+    console.log({ data, error, isLoading });
+    
 
     const amountPlan = useVehiclePlanStore( state => state.amountPlan )
     const updatePlanAmount = useVehiclePlanStore( state => state.updatePlanAmount )
