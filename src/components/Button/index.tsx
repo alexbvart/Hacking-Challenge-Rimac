@@ -2,6 +2,8 @@ import React from 'react'
 import { ButtonProps } from '../../models/button-model';
 
 const Button : React.FC<ButtonProps> = ( {isDirty, isValid, children, type, className=''}) => {
+    // console.log("boton",{isDirty, isValid});
+    
     return (
         <div>
             <button
