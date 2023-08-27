@@ -2,7 +2,7 @@
 
 
 export const MIN_AMOUNT_VEHICLE_PLAN :number = 12500
-export const BASE_AMOUNT_VEHICLE_PLAN :number = 15900 //14
+export const BASE_AMOUNT_VEHICLE_PLAN :number = 14000 //14
 export const MAX_AMOUNT_VEHICLE_PLAN :number = 16500
 export const STEP_AMOUNT_VEHICLE_PLAN :number = 100
 export const TOGGLE_AMOUNT_RUN_RED_LIGHT :number = 16000

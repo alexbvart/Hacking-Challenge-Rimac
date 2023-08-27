@@ -1,30 +1,13 @@
 import { create } from 'zustand'
-import { BASE_AMOUNT_VEHICLE_PLAN, BASE_COVERAGE, MIN_AMOUNT_VEHICLE_PLAN, RUN_OVER, RUN_RED_LIGHT, STEP_AMOUNT_VEHICLE_PLAN, STOLEN_TIREE } from '../utilities/constants'
+import { BASE_AMOUNT_VEHICLE_PLAN, BASE_COVERAGE, RUN_OVER, RUN_RED_LIGHT, STEP_AMOUNT_VEHICLE_PLAN, STOLEN_TIREE } from '../utilities/constants'
+import { VehiclePlanStore, updateCoveragePlanType, updatePlanAmountType } from '../models/plan-store-model'
 
-
-type  updatePlanAmountType = 'increasePlanAmount' | 'decreasePlanAmount'
-type  updateCoveragePlanType  = 'stolenTire' | 'redLightRunning' | 'runOver'
-
-interface VehiclePlanStore {
-    amountPlan: number;
-    updatePlanAmount: (name: updatePlanAmountType) => void;
-    ammuntCoverage: number;
-    toggleCoverageRunRedLight: boolean;
-    onToggleCoverageRunRedLight: () => void;
-    updateCoveragePlan: (
-      name: updateCoveragePlanType,
-      checked: boolean
-    ) => void;
-}
-
-
-export const useVehiclePlanStore = create<VehiclePlanStore>((set,get) => {  
+export const useVehiclePlanStore = create<VehiclePlanStore>((set) => {  
     return {
-        amountPlan: BASE_AMOUNT_VEHICLE_PLAN,
-
-        updatePlanAmount : (name:string) => {
+        amountPlan: BASE_AMOUNT_VEHICLE_PLAN ,
+        updatePlanAmount : (name: updatePlanAmountType) => {
             
-            return set((state: { amountPlan: number }) => {
+            set((state) => {
                 switch (name) {
 
                     case 'increasePlanAmount':
@@ -32,23 +15,19 @@ export const useVehiclePlanStore = create<VehiclePlanStore>((set,get) => {
         
                     case 'decreasePlanAmount':
                         return  { amountPlan: state.amountPlan - STEP_AMOUNT_VEHICLE_PLAN }
-                        
                 }
             })
         }, 
 
-        ammuntCoverage: BASE_COVERAGE,
-
+        
         toggleCoverageRunRedLight: false,
         onToggleCoverageRunRedLight:  () => set((state: { toggleCoverageRunRedLight: boolean }) => ({ toggleCoverageRunRedLight:  !state.toggleCoverageRunRedLight })),
+        
+        
+        ammuntCoverage: BASE_COVERAGE,
+        updateCoveragePlan : (name:updateCoveragePlanType, checked:boolean) => {
 
-
-        updateCoveragePlan : (name:string, checked:boolean) => {
-
-            console.log("valores en estado",{name,checked});
-            
-            
-            return set((state: { ammuntCoverage: number }) => {
+            set((state) => {
                 switch (name) {
 
                     case 'stolenTire':

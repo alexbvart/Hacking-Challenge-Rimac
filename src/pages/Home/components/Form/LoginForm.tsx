@@ -20,10 +20,10 @@ export const LoginForm = () => {
     })
 
     const {
-        register, 
+        // register, 
         handleSubmit, 
         watch, 
-        formState : {errors, isDirty, isValid}, 
+        formState : {isDirty, isValid}, 
         reset
     } = formMethods;
 
@@ -32,7 +32,8 @@ export const LoginForm = () => {
     const licensePlateWatch = watch('licensePlate') 
 
     const onSubmit: SubmitHandler<InputsForLogin> = async (data) => {
-        const result = await callEndpoint()
+        console.log(data);
+        await callEndpoint()
         reset();
     }
  

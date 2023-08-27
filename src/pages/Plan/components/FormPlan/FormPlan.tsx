@@ -3,6 +3,7 @@ import React, {useEffect} from 'react'
 import { MAX_AMOUNT_VEHICLE_PLAN, MIN_AMOUNT_VEHICLE_PLAN, STEP_AMOUNT_VEHICLE_PLAN, TOGGLE_AMOUNT_RUN_RED_LIGHT } from '../../../../utilities/constants';
 import Checkbox from '../../../../components/Input/Checkbox';
 import { useVehiclePlanStore } from '../../../../store/vehiclePlan';
+import { updatePlanAmountType } from '../../../../models/plan-store-model';
 
 const FormPlan = () => {
 
@@ -59,9 +60,12 @@ const FormPlan = () => {
     }, [disablerunOver])
     
 
-    const onChangeAmount = (e) => {
-        const {name} = e.target;
-        updatePlanAmount(name)
+    const onChangeAmount = (e: React.MouseEvent<HTMLButtonElement>) => {
+        const { name } = e.currentTarget;
+        // Comprueba si name es un valor válido de updatePlanAmountType
+        if (name === 'increasePlanAmount' || name === 'decreasePlanAmount') {
+            updatePlanAmount(name as updatePlanAmountType)
+        }
     }
 
     return (

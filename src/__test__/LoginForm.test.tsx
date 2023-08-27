@@ -1,5 +1,5 @@
 import {describe, expect, it, afterEach, vi} from 'vitest'
-import {cleanup, fireEvent, getByText, render, screen, waitFor} from '@testing-library/react'
+import {cleanup,  render, screen, waitFor} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { LoginForm } from '../pages/Home/components/Form/LoginForm'
 import { LoginFormMock, LoginFormMockError, UserDataMock } from '../_mocks_/LoginForm.mock'

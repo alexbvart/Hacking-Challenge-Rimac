@@ -1,17 +1,14 @@
-export interface VehiclePlanStoreActions {
+export type  updatePlanAmountType = 'increasePlanAmount' | 'decreasePlanAmount' 
+export type  updateCoveragePlanType  = 'stolenTire' | 'redLightRunning' | 'runOver'
+
+export interface VehiclePlanStore {
     amountPlan: number;
-    increasePlanAmount: (state: { amountPlan: number }) => void;
-    decreasePlanAmount: (state: { amountPlan: number }) => void;
-    activateInsuranceStolenTire: (state: { amountPlan: number }) => void;
-    deactivateInsuranceStolenTire: (state: { amountPlan: number }) => void;
-    activateInsuranceRunRedLight: (state: { amountPlan: number }) => void;
-    deactivateInsuranceRunRedLight: (state: { amountPlan: number }) => void;
-    activateInsuranceRunOver: (state: { amountPlan: number }) => void;
-    deactivateInsuranceRunOver: (state: { amountPlan: number }) => void;
+    updatePlanAmount: (name: updatePlanAmountType) => void;
+    ammuntCoverage: number;
+    toggleCoverageRunRedLight: boolean;
+    onToggleCoverageRunRedLight: () => void;
+    updateCoveragePlan: (
+      name: updateCoveragePlanType,
+      checked: boolean
+    ) => void;
 }
-
-export interface VehiclePlanStoreState {
-  amountPlan: number;
-}
-
-export type VehiclePlanStore = VehiclePlanStoreState & VehiclePlanStoreActions 

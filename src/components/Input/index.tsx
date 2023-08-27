@@ -6,7 +6,7 @@ export const Input: React.FC<InputProps> = ({
     name,
     label = '',
     type,
-    value = 0,
+    value,
     disabled = false,
     required = false,
     min  ,
@@ -28,6 +28,7 @@ export const Input: React.FC<InputProps> = ({
                 min={min}
                 max={max}
                 step={step}
+                value={value}
             />
             </label>
             {errors && formValidation(errors, name)}
