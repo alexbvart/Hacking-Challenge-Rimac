@@ -5,17 +5,18 @@ import Checkbox from '../../../../components/Input/Checkbox';
 import { useVehiclePlanStore } from '../../../../store/vehiclePlan';
 import { updatePlanAmountType } from '../../../../models/plan-store-model';
 import { fetchEndpoint } from '../../../Home/services/call-endpoint';
+import { useNavigate } from 'react-router-dom';
+import { THANKS_PATH } from '../../../../routes/routesPath';
 
 const FormPlan = () => {
 
-    
+    const navigate = useNavigate()
+
     const { data, error, isLoading } = useSWR(URL_PUBLIC_API, fetchEndpoint)
     if ( !error && !isLoading && data) {
         console.log({ data, error, isLoading }, "xddd");
         
     }
-    console.log({ data, error, isLoading });
-    
 
     const amountPlan = useVehiclePlanStore( state => state.amountPlan )
     const updatePlanAmount = useVehiclePlanStore( state => state.updatePlanAmount )
@@ -31,7 +32,7 @@ const FormPlan = () => {
     const disableAddAmount = () => amountPlan <= MIN_AMOUNT_VEHICLE_PLAN
     const disableSubtractAmount = () => amountPlan >= MAX_AMOUNT_VEHICLE_PLAN
     const disablerunOver =  amountPlan >= TOGGLE_AMOUNT_RUN_RED_LIGHT
-    const selectVehicleInsurancePlan = () => {}
+    const selectVehicleInsurancePlan = () => { navigate(THANKS_PATH); }
 
 
     const onChangeCheck = (e: React.ChangeEvent<HTMLInputElement>) => {

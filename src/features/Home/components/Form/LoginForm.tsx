@@ -5,13 +5,15 @@ import Input from '../../../../components/Input'
 import Button from '../../../../components/Button'
 import { InputsForLogin } from '../../../../models/input-model'
 import { useUserStore } from '../../../../store/userStore'
-
+import { useNavigate } from "react-router-dom";
+import { PLAN_PATH } from '../../../../routes/routesPath'
 
 export const LoginForm = () => {
 
     const setDni = useUserStore(state => state.setDni)
     const setCellPhone = useUserStore(state => state.setCellPhone)
     const setLicensePlate = useUserStore(state => state.setLicensePlate)
+    const navigate = useNavigate();
 
     const formMethods  = useForm({
         defaultValues: {
@@ -26,14 +28,12 @@ export const LoginForm = () => {
     const {
         // register, 
         handleSubmit, 
-        watch, 
+        // watch, 
         formState : {isDirty, isValid}, 
         reset
     } = formMethods;
 
-    const dniWatch = watch('dni') 
-    const cellPhoneWatch = watch('cellPhone') 
-    const licensePlateWatch = watch('licensePlate') 
+
 
     const onSubmit: SubmitHandler<InputsForLogin> = async (data) => {
 
@@ -44,6 +44,7 @@ export const LoginForm = () => {
             cellPhone && setCellPhone(data.cellPhone)
             licensePlate && setLicensePlate(data.licensePlate)
         }
+        navigate(PLAN_PATH);
         reset();
     }
  
@@ -58,15 +59,6 @@ export const LoginForm = () => {
                     <Button type="submit" isDirty={isDirty} isValid={isValid} > COTÍZALO </Button>
                 </form>
             </FormProvider>
-
-
-            {isDirty && isValid && (
-                <>
-                    <p>{dniWatch}</p> 
-                    <p>{cellPhoneWatch}</p>
-                    <p>{licensePlateWatch}</p>
-                </>
-            )}
         </>
     )
 }

@@ -1,9 +1,9 @@
 import {describe, expect, it, afterEach, vi} from 'vitest'
 import {cleanup,  render, screen, waitFor} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { LoginForm } from '../pages/Home/components/Form/LoginForm'
 import { LoginFormMock, LoginFormMockError, UserDataMock } from '../_mocks_/LoginForm.mock'
 import axios from "axios";
+import { LoginForm } from '../features/Home/components/Form/LoginForm';
 
 // jest.mock('axios');
 vi.mock('axios')

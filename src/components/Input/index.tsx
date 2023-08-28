@@ -31,6 +31,11 @@ export const Input: React.FC<InputProps> = ({
                 value={value}
             />
             </label>
+            
+            {/* <div className="w-72 h-14 relative">
+                <div className="w-72 h-14 left-0 top-0 absolute bg-white rounded border border-slate-300" />
+                <div className="w-64 left-[16px] top-[16px] absolute text-indigo-300 text-base font-normal leading-normal">Celular</div>
+            </div> */}
             {errors && formValidation(errors, name)}
         </div>
     );
