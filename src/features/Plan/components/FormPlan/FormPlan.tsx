@@ -1,101 +1,45 @@
-import React, {useEffect} from 'react'
-import useSWR from "swr";
-import { MAX_AMOUNT_VEHICLE_PLAN, MIN_AMOUNT_VEHICLE_PLAN, STEP_AMOUNT_VEHICLE_PLAN, TOGGLE_AMOUNT_RUN_RED_LIGHT, URL_PUBLIC_API } from '../../../../utilities/constants';
-import Checkbox from '../../../../components/Input/Checkbox';
-import { useVehiclePlanStore } from '../../../../store/vehiclePlan';
-import { updatePlanAmountType } from '../../../../models/plan-store-model';
-import { fetchEndpoint } from '../../../Home/services/call-endpoint';
-import { useNavigate } from 'react-router-dom';
 import { THANKS_PATH } from '../../../../routes/routesPath';
-
+import CoveragesToggles from '../CoverageToggles';
+import Hero from "../Hero";
+import LinkButton from '../../../../components/LinkButton';
+import AmountSection from '../Amount';
+import {Tabs, Tab, Progress, Button} from "@nextui-org/react"; 
+import { Coverage } from '../CoverageToggles/Coverage';
 const FormPlan = () => {
 
-    const navigate = useNavigate()
-
-    const { data, error, isLoading } = useSWR(URL_PUBLIC_API, fetchEndpoint)
-    if ( !error && !isLoading && data) {
-        console.log({ data, error, isLoading }, "xddd");
-        
-    }
-
-    const amountPlan = useVehiclePlanStore( state => state.amountPlan )
-    const updatePlanAmount = useVehiclePlanStore( state => state.updatePlanAmount )
-
-
-    const ammuntCoverage = useVehiclePlanStore( state => state.ammuntCoverage )
-    const updateCoveragePlan = useVehiclePlanStore( state => state.updateCoveragePlan )
-
-    const onToggleCoverageRunRedLight = useVehiclePlanStore( state => state.onToggleCoverageRunRedLight )
-    const toggleCoverageRunRedLight = useVehiclePlanStore( state => state.toggleCoverageRunRedLight )
-
-
-    const disableAddAmount = () => amountPlan <= MIN_AMOUNT_VEHICLE_PLAN
-    const disableSubtractAmount = () => amountPlan >= MAX_AMOUNT_VEHICLE_PLAN
-    const disablerunOver =  amountPlan >= TOGGLE_AMOUNT_RUN_RED_LIGHT
-    const selectVehicleInsurancePlan = () => { navigate(THANKS_PATH); }
-
-
-    const onChangeCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const {name, checked} = e.target;
-
-        console.log("check",{name,checked}, "store",{toggleCoverageRunRedLight});
-        
-        if (name == 'redLightRunning' ) {
-            //si boton 'redLightRunning' esta desincronizado no hace nada
-            checked != toggleCoverageRunRedLight && onToggleCoverageRunRedLight()
-            checked != toggleCoverageRunRedLight && updateCoveragePlan(name, checked)
-        }
-        if(name == 'stolenTire' || name == 'runOver' ){
-            updateCoveragePlan(name, checked)
-        }
-
-    }
-
-    useEffect(() => {
-
-        console.log((disablerunOver ? '+16' : '-16'), {toggleCoverageRunRedLight});
-
-        //si 16 + encendido = apagamos ✅
-        if (disablerunOver) {
-            toggleCoverageRunRedLight && updateCoveragePlan('redLightRunning', !toggleCoverageRunRedLight)
-            toggleCoverageRunRedLight && onToggleCoverageRunRedLight()
-            //si +16 + apagado = nada
-        }else{
-            // -16 +encendido = encendido✅
-            toggleCoverageRunRedLight && updateCoveragePlan('redLightRunning', !toggleCoverageRunRedLight)
-            toggleCoverageRunRedLight && onToggleCoverageRunRedLight()
-        }
-      return () => {
-        
-      }
-    }, [disablerunOver])
-    
-
-    const onChangeAmount = (e: React.MouseEvent<HTMLButtonElement>) => {
-        const { name } = e.currentTarget;
-        // Comprueba si name es un valor válido de updatePlanAmountType
-        if (name === 'increasePlanAmount' || name === 'decreasePlanAmount') {
-            updatePlanAmount(name as updatePlanAmountType)
-        }
-    }
 
     return (
-        <>  
-                <button name='decreasePlanAmount' disabled={disableAddAmount()} onClick={onChangeAmount}>-100</button>
-                <input type="number"  value={amountPlan} step={STEP_AMOUNT_VEHICLE_PLAN} min={MIN_AMOUNT_VEHICLE_PLAN} max={MAX_AMOUNT_VEHICLE_PLAN} disabled />
-                <button name='increasePlanAmount'disabled={disableSubtractAmount()} onClick={onChangeAmount}>+100</button>
+        <>      
+            <div className='bg-white w-full px-4 lg:w-1/2'>
 
-                <button onClick={selectVehicleInsurancePlan}> LO QUIERO</button>
+                <header  className='flex-xy w-full px-4 py-4'>
+                    <Button isIconOnly color="default" variant="light" radius="full" className='text-indigo-300 border-indigo-500 bg-white'>
+                        {`<`}
+                    </Button> 
+                    <span className='fb-xs'>PASO 2 DE 2</span>
+                    <Progress size="md" aria-label="Loading..." value={100} color="danger" isDisabled/>
+                </header>
 
-                <br></br>
-                <br></br>
+                <Hero/>
+                <AmountSection/>
 
-                <Checkbox name='stolenTire'  label='Llanta robada' type='checkbox' onChange={onChangeCheck} />
-                <br /> {toggleCoverageRunRedLight ? 'encendido' : 'apagado'}
-                <Checkbox  name='redLightRunning'  label='Choque y/o pasarte la luz roja' type='checkbox'  onChange={onChangeCheck} disabled={disablerunOver} checked={toggleCoverageRunRedLight} />
-                <Checkbox name='runOver'  label='Atropello en la vía Evitamiento'  type='checkbox' onChange={onChangeCheck}/>
-                <p>{ammuntCoverage}</p>
+                <div className="w-full">
+                    <Tabs variant="underlined" disabledKeys={["ProtectThoseAroundYou","ImproveYourPlan"]} fullWidth  >
+                        <Tab key="ProtectYourCar" title={ <div className='fb-xs text-rose-600 '>Protege a tu auto </div> }  >
+                            <CoveragesToggles/>
+                        </Tab>
+                        <Tab key="ProtectThoseAroundYou" title="Protege a los que te rodean" className='fb-xs flex'/>
+                        <Tab key="ImproveYourPlan" title="Mejora tu plan" className='fb-xs break-words'/>
+                    </Tabs>
+                </div>
 
+                <footer className=' fixed	 bottom-0 left-0 right-0'>
+                    <div className='flex-xy w-full px-8 py-4'>
+                        <Coverage/>
+                        <LinkButton href={THANKS_PATH}> LO QUIERO</LinkButton>
+                    </div>
+                </footer>
+            </div>        
         </>
   )
 }

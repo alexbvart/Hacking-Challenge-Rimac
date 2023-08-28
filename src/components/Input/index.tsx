@@ -1,6 +1,7 @@
 import { useFormContext } from "react-hook-form"
 import { InputProps } from "../../models/input-model";
 import { formValidation } from "./formValidation";
+import {Input as NUIButton} from "@nextui-org/react";
 
 export const Input: React.FC<InputProps> = ({
     name,
@@ -18,8 +19,13 @@ export const Input: React.FC<InputProps> = ({
 
     return (
         <div>
-            <label htmlFor={name}>{label}
-            <input
+
+            <NUIButton
+                size="lg"
+                variant="bordered"
+                radius="sm"
+                placeholder={label}
+                isRequired={required}
                 required={required}
                 disabled={disabled}
                 type={type}
@@ -29,14 +35,9 @@ export const Input: React.FC<InputProps> = ({
                 max={max}
                 step={step}
                 value={value}
+                className=""
+                errorMessage={formValidation(errors, name)}
             />
-            </label>
-            
-            {/* <div className="w-72 h-14 relative">
-                <div className="w-72 h-14 left-0 top-0 absolute bg-white rounded border border-slate-300" />
-                <div className="w-64 left-[16px] top-[16px] absolute text-indigo-300 text-base font-normal leading-normal">Celular</div>
-            </div> */}
-            {errors && formValidation(errors, name)}
         </div>
     );
 };

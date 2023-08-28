@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+    .f-xs {
+      @apply w-44 text-indigo-300 text-sm font-normal leading-tight tracking-tight;
+    }
+    .fb-xs {
+      @apply w-44 text-indigo-300 text-sm font-medium uppercase   ;
+    }
+    .f-sm {
+      @apply text-slate-500 text-base font-normal leading-none tracking-wide;
+    }
+    .fb-base {
+      @apply text-gray-600 text-lg font-normal leading-normal tracking-tight;
+    }
+    .f-cta {
+      @apply text-gray-600 text-3xl lg:text-4xl font-normal leading-10;
+    }
+    .flex-xy {
+      @apply flex flex-row justify-between items-center;
+    }
+  }

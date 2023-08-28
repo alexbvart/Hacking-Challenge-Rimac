@@ -33,8 +33,9 @@ export interface CheckboxProps {
     disabled?: boolean;
     required?: boolean;
     // onClick?: React.MouseEventHandler<HTMLInputElement>;
-    onChange?: React.ChangeEventHandler<HTMLInputElement>;
+    onChange?: React.FormEventHandler<HTMLLabelElement>  ;
     checked?: boolean;
+    isSelected?:boolean
 }
 
 

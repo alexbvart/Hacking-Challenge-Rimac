@@ -7,3 +7,8 @@ export interface ButtonProps {
     type: TypeButtonInput;
     className?: string;
 }
+export interface LinkButtonProps {
+    children: React.ReactNode;
+    className?: string;
+    href: string
+}

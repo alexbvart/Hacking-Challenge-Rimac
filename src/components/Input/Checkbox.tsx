@@ -1,28 +1,29 @@
 import { CheckboxProps } from "../../models/input-model";
+import {Switch} from "@nextui-org/react";
 
 export const Checkbox: React.FC<CheckboxProps> = ({
     name,
     label = '',
-    type='checkbox',
     disabled = false,
-    required = false,
+    // required = false,
     onChange,
-    checked
+    checked,
+    isSelected
+
 }) => {
 
     return (
         <>
-            <label htmlFor={name}>{label}
-            <input
+             <Switch 
                 name={name}
-                required={required}
-                disabled={disabled}
-                type={type}
-                id={name}
+                color="success" 
+                isDisabled={disabled}  
+                defaultSelected={checked}
                 onChange={onChange}
-                defaultChecked={checked}
-            />
-            </label>
+                isSelected={isSelected}
+                >
+                    {label}
+            </Switch>
         </>
     );
 };
