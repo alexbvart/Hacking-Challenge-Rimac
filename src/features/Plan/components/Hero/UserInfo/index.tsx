@@ -6,7 +6,7 @@ const UserInfo = () => {
     <Suspense
         fallback={
             <>
-                <div className="w-full flex flex-col gap-2 py-6">
+                <div className="w-full flex flex-col gap-2 pb-6">
                     <Skeleton className="h-8 w-3/5 rounded-lg"/>
                     <Skeleton className="h-6 w-4/5 rounded-lg"/>
                 </div>

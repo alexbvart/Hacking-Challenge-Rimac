@@ -1,7 +1,10 @@
 import {Card, CardBody} from "@nextui-org/react";
 import UserInfo from "./UserInfo";
+import { useUserStore } from "../../../../store/userStore";
+import CharacterSVG from "../../../../components/Icons/Character";
 
 const Hero = () => {
+    const licensePlate = useUserStore(state => state.licensePlate)
 
     return (
         <div className='py-4 px-4 gap-6'>
@@ -9,9 +12,16 @@ const Hero = () => {
             <UserInfo/>
 
             <Card className="" shadow="sm" radius="sm" >
-                <CardBody>
-                    <p className="f-xs">Placa:{}</p>
-                    <p className="fb-base text-gray-600">Wolkswagen 2019 Golf</p>
+                <CardBody >
+                    <div className="flex relative ">
+                        <div className="h-[136px] flex flex-col justify-center">
+                            <p className="f-xs">Placa: {licensePlate.toUpperCase()} </p>
+                            <p className="fb-base text-gray-600">Wolkswagen 2019 Golf</p>
+                        </div>
+                        <div className=" absolute -right-4 -top-0 bottom-0 h-32 ">
+                            <CharacterSVG/>
+                        </div>
+                    </div>
                 </CardBody>
             </Card>
 

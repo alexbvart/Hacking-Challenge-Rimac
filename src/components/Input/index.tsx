@@ -18,13 +18,14 @@ export const Input: React.FC<InputProps> = ({
     const {register, formState : {errors} } = useFormContext();
 
     return (
-        <div>
 
             <NUIButton
                 size="lg"
                 variant="bordered"
                 radius="sm"
-                placeholder={label}
+                label={label}
+                labelPlacement={"inside"}
+                // placeholder={label}
                 isRequired={required}
                 required={required}
                 disabled={disabled}
@@ -35,10 +36,9 @@ export const Input: React.FC<InputProps> = ({
                 max={max}
                 step={step}
                 value={value}
-                className=""
+                className=" "
                 errorMessage={formValidation(errors, name)}
             />
-        </div>
     );
 };
 
