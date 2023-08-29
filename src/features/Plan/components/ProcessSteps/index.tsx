@@ -1,5 +1,4 @@
 import { Button, Progress } from "@nextui-org/react"
-import Feeds from "../../../../components/Feeds"
 
 const ProcessSteps = () => {
   return (

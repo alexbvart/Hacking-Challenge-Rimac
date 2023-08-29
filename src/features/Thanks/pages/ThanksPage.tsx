@@ -1,20 +1,11 @@
-import { useVehiclePlanStore } from '../../../store/vehiclePlan'
 import { useUserStore } from '../../../store/userStore'
-import {Popover, PopoverTrigger, PopoverContent} from "@nextui-org/react";
-import ThanksDestock from '../../../components/Icons/ThanksDestock';
 import LinkButton from '../../../components/LinkButton';
 import MenThank from '../../../components/Icons/MenThank';
+import DataStore from '../components/DataStore/DataStore';
 
 export const ThanksPage = () => {
 
-    const amountPlan = useVehiclePlanStore(state=> state.amountPlan)
-    const ammuntCoverage = useVehiclePlanStore(state=> state.ammuntCoverage)
-
-    const dni = useUserStore(state=> state.dni)
-    const cellPhone = useUserStore(state=> state.cellPhone)
-    const licensePlate = useUserStore(state=> state.licensePlate)
     const mailing = useUserStore(state=> state.mailing)
-    const name = useUserStore(state=> state.name)
 
 
     return (
@@ -37,28 +28,11 @@ export const ThanksPage = () => {
                             <span className='text-slate-800'>{mailing && `: ${mailing}`}</span>
                         </p>
                         <LinkButton href="#" > cómo usar mi seguro </LinkButton>
+                        <DataStore/>
                     </main>
 
                 </section>
             </div>
-
-
-            {/* <Popover showArrow placement="bottom">
-                <PopoverTrigger>
-                    Store
-                </PopoverTrigger>
-                <PopoverContent className="p-1">
-                    <p>dni: {dni}</p>
-                    <p>name: {name}</p>
-                    <p>celular: {cellPhone}</p>
-                    <p>placa: {licensePlate}</p>
-                    <p>correo: {mailing}</p>
-                    <p>monto_final: {amountPlan}</p>
-                    <p>covertura mensual: {ammuntCoverage}</p>
-                </PopoverContent>
-            </Popover> */}
-
-
         </>
     )
 }
