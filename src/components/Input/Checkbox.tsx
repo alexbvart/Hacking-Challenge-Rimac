@@ -21,8 +21,9 @@ export const Checkbox: React.FC<CheckboxProps> = ({
                 defaultSelected={checked}
                 onChange={onChange}
                 isSelected={isSelected}
+                className=" min-w-full w-full flex flex-row-reverse justify-between gap-4 overflow-x-hidden"
                 >
-                    {label}
+                    <span className="w-full">{label}</span>
             </Switch>
         </>
     );

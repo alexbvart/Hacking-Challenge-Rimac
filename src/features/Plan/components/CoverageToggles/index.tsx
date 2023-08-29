@@ -54,19 +54,17 @@ const CoveragesToggles = () => {
 
     return (
 
-        <div>
-            <Accordion selectionMode="multiple" fullWidth variant='light'>
-                <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
+            <Accordion selectionMode="multiple" fullWidth variant='light' className='flex flex-col'>
+                <AccordionItem key="1" aria-label="Accordion 1" title="ALlanta robada">
                     <Checkbox name='stolenTire'  label='Llanta robada' type='checkbox' onChange={onChangeCheck}  />
                 </AccordionItem>
-                <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
+                <AccordionItem key="2" aria-label="Accordion 2" title="Choque y/o pasarte la luz roja ">
                     <Checkbox  name='redLightRunning'  label='Choque y/o pasarte la luz roja' type='checkbox'  onChange={onChangeCheck} disabled={disablerunOver} isSelected={toggleCoverageRunRedLight} />
                 </AccordionItem>
-                <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
+                <AccordionItem key="3" aria-label="Accordion 3" title="Atropello en la vía Evitamiento ">
                     <Checkbox name='runOver'  label='Atropello en la vía Evitamiento'  type='checkbox' onChange={onChangeCheck}/>
                 </AccordionItem>
             </Accordion>
-        </div>
     )
 }
 

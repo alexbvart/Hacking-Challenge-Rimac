@@ -2,7 +2,7 @@ import AmountButtons from './AmountButtons'
 
 const AmountSection = () => {
   return (
-    <section className="flex flex-col gap-4 px-4  py-4">
+    <section className="w-full flex flex-col gap-4 px-4  py-4">
         <header className="flex flex-col gap-1">
             <div className="fb-base">
                 Indica la suma asegurada

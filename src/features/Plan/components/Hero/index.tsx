@@ -7,7 +7,7 @@ const Hero = () => {
     const licensePlate = useUserStore(state => state.licensePlate)
 
     return (
-        <div className='py-4 px-4 gap-6'>
+        <div className='w-full py-4 px-4 gap-6'>
             
             <UserInfo/>
 

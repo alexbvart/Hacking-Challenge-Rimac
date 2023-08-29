@@ -5,6 +5,7 @@ const WomanMobile = () => (
     width={112}
     height={276}
     fill="none"
+    className="lg:hidden"
   >
     <mask
       id="a"

@@ -3,9 +3,11 @@ import Navbar from '../Navbar'
 export default function Layout() {
     return (
         <>
-            <Navbar />            
-            <div >
-                <Outlet />
+            <div>
+                <Navbar />            
+                <div className='max-w-screen' >
+                    <Outlet />
+                </div>
             </div>
         </>
     )
