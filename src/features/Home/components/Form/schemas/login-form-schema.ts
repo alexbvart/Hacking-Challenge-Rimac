@@ -24,13 +24,19 @@ export const schema = yup
         ),
 
     licensePlate: yup
-      .string()
-      .required('Paca de auto es requerida')
-      .max(7, 'Paca de auto debe tener máximo de 7 caracteres')
-      .min(6, 'Paca de auto debe tener 6 caracteres')
-      .matches(
-        /^[A-Za-z]{3}[0-9]{3}$/,
-        'La placa debe ser alfanumérico. Ejemplo: C2U-114'
-      )
+        .string()
+        .required('Placa de auto es requerida')
+        .max(6, 'Placa de auto debe tener máximo de 6 caracteres')
+        .min(6, 'Placa de auto debe tener 6 caracteres')
+        .matches(
+            // /^[a-zA-Z][0-9a-zA-Z]{5}([0-9a-zA-Z])?$/,
+            /^[a-zA-Z][0-9a-zA-Z]{5}$/,
+            'La placa debe ser alfanumérico. Ejemplo: C2U-114'
+        ),
+
+    acceptTerms: yup
+        .bool()
+        .required("Acepte los termino para continuar")
+        .oneOf([true])
   })
   .required();

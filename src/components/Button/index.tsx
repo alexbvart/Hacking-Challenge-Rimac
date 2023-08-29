@@ -1,19 +1,21 @@
 import React from 'react'
 import { ButtonProps } from '../../models/button-model';
+import {Button as NUXButton} from "@nextui-org/react";
 
-const Button : React.FC<ButtonProps> = ( {isDirty, isValid, children, type, className=''}) => {
+const Button : React.FC<ButtonProps> = ( {isDirty, isValid, children, type, className='rounded-lg'}) => {
+
+    const isDisable = (!isDirty || !isValid)
     return (
         <div>
-            <button
+            <NUXButton
                 type={type}
-                disabled={!isDirty || !isValid }
-                className={`${className} btn btn-primary`}>
-                <p>{children}</p>    
-            </button>
-
-            {/* <div className="w-72 h-14 justify-center items-center inline-flex">
-                <div className="w-72 h-14 bg-rose-600 rounded-lg" />
-            </div> */}
+                fullWidth
+                // disabled={!isDirty || !isValid}
+                {... ( (isDisable) ? { disabled: (isDisable) } : {} )}
+                className={`${className} h-14 ${isDisable ? 'bg-rose-400' :'bg-rose-600'} `}
+            >
+                <p className='text-white text-sm font-medium uppercase'>{children}</p>    
+            </NUXButton>
         </div>
     )
 }
