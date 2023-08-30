@@ -21,10 +21,10 @@ const AmountButtons = () => {
   return (
     <div>
         <ButtonGroup className="w-full bg-white rounded border border-slate-300" radius="sm" fullWidth>
-            <Button name='decreasePlanAmount' isDisabled ={disableAddAmount} onClick={onChangeAmount} className=" w-1/3 bg-white" >-</Button>
-            <span className="w-1/3 text-center fb-base px-6"> $ {amountPlan} </span>
+            <Button name='decreasePlanAmount' isDisabled ={disableAddAmount} onClick={onChangeAmount} className=" w-1/4 bg-white" >-</Button>
+            <span className="w-2/4 text-center fb-base px-1"> $ {amountPlan}.00 </span>
             {/* <input type="number"  value={amountPlan} step={STEP_AMOUNT_VEHICLE_PLAN} min={MIN_AMOUNT_VEHICLE_PLAN} max={MAX_AMOUNT_VEHICLE_PLAN} disabled className=" text-center text-gray-600 text-base " /> */}
-            <Button name='increasePlanAmount'isDisabled ={disableSubtractAmount} onClick={onChangeAmount} className="w-1/3 bg-white">+</Button>
+            <Button name='increasePlanAmount'isDisabled ={disableSubtractAmount} onClick={onChangeAmount} className="w-1/4 bg-white">+</Button>
         </ButtonGroup>
     </div>
   )

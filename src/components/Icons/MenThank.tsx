@@ -4,7 +4,9 @@ const MenThank = () => (
     width={192}
     height={438}
     fill="none"
-    className="block m-auto"
+    className="block translate-y-32 
+                md:m-auto 
+                md:translate-y-0"
   >
     <path
       fill="#017"

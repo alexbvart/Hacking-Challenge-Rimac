@@ -20,9 +20,9 @@ const PlanPage = () => {
                 <div className="w-full max-w-full  flex flex-col   py-8 gap-4">
                     <h2 className='f-cta text-xl '>Agrega o quita coberturas</h2>
                     <div className="w-full">
-                        <Tabs variant="underlined" disabledKeys={["ProtectThoseAroundYou","ImproveYourPlan"]} fullWidth  >
+                        <Tabs variant="underlined" disabledKeys={["ProtectThoseAroundYou","ImproveYourPlan"]} fullWidth >
                             <Tab key="ProtectYourCar" 
-                                title={ <div className='fb-xs text-rose-600 mb-2'>Protege a <br/> tu auto </div> }  
+                                title={ <div className='fb-xs text-rose-600 '>Protege a <br/> tu auto </div> }  
                             >
                                 <CoveragesToggles/>
                             </Tab>
