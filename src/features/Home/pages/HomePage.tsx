@@ -11,13 +11,11 @@ const HomePage = () => {
                     <main className='flex flex-col gap-4'>
                         <span className='f-xs'>¡NUEVO!</span>
                         <h1 className='f-cta'>Seguro Vehicular <span className='text-rose-500'>Tracking</span></h1>
-                        <p className='f-sm'>Cuentanos donde le haras seguimiento a tu seguro</p>
+                        <p className='f-sm'>Cuéntanos donde le haras seguimiento a tu seguro</p>
                     </main>
-                    {/* <WomanMobile/> */}
                     <div className='w-full bg-image-cover-city'>
                         <WomanDesktop/>
                     </div>
-
                 </section>
 
                 <section className="w-full flex flex-col ">

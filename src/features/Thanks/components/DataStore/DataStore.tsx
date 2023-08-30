@@ -20,7 +20,7 @@ const DataStore = () => {
             <Button onPress={onOpen} className="max-w-fit">Ver datos del Store</Button>
             <Modal 
                 isOpen={isOpen} 
-                placement="top-center"
+                placement="bottom-center"
                 onOpenChange={onOpenChange} 
             >
                 <ModalContent>

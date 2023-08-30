@@ -1,3 +1,4 @@
+import { Divider } from '@nextui-org/react'
 import AmountButtons from './AmountButtons'
 
 const AmountSection = () => {
@@ -9,7 +10,7 @@ const AmountSection = () => {
             </div>
             <div className="flex gap-2">
                 <span className="f-sm ">MIN $12.500  </span>
-                <div className="w-0.5 h-4 bg-violet-200" />
+                <Divider orientation="vertical" className='h-5 '/>
                 <span className="f-sm "> MAX $16,500 </span>
             </div>
         </header>
