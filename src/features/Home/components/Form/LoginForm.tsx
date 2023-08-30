@@ -30,24 +30,20 @@ export const LoginForm = () => {
     const {
         register, 
         handleSubmit, 
-        watch, 
+        // watch, 
         formState : {isDirty, isValid,errors}, 
         reset
     } = formMethods;
 
-    const acceptTermsWatch = watch("acceptTerms")
-    console.log(acceptTermsWatch);
-    
 
     const onSubmit: SubmitHandler<InputsForLogin> = async (data) => {
 
         if (data) {
-            const {dni, cellPhone, licensePlate, acceptTerms} = data
+            const {dni, cellPhone, licensePlate} = data
 
             dni && setDni(data.dni)
             cellPhone && setCellPhone(data.cellPhone)
             licensePlate && setLicensePlate(data.licensePlate)
-            console.log(acceptTerms);
             
         }
         navigate(PLAN_PATH);
