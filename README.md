@@ -49,7 +49,7 @@ git clone https://github.com/alexbvart/Hacking-Challenge-Rimac.git
 ```
 Para ingresar a la carpeta de la aplicación usamos:
 ``` shell
-cd sayni
+cd hacking-challenge-rimac
 ```
 
 **2. Instalamos las dependencias**\
