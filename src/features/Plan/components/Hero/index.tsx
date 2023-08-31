@@ -14,9 +14,9 @@ const Hero = () => {
             <Card className="" shadow="sm" radius="sm" >
                 <CardBody >
                     <div className="flex relative ">
-                        <div className="h-[136px] flex flex-col justify-center">
+                        <div className="h-[136px] flex flex-col justify-center gap-2">
                             <p className="f-xs">Placa: {licensePlate.toUpperCase()} </p>
-                            <p className="fb-base text-gray-600">Wolkswagen 2019 Golf</p>
+                            <p className="fb-base text-gray-600 pr-10">Wolkswagen 2019 Golf</p>
                         </div>
                         <div className=" absolute -right-4 -top-0 bottom-0 h-32 ">
                             <CharacterSVG/>

@@ -26,26 +26,50 @@
       @apply flex flex-col px-8 py-4;
     }
     .responsive-two-col{
-        @apply w-full h-screen flex flex-col md:flex-row justify-center items-center px-4 gap-4 lg:gap-10
+        @apply w-full min-h-screen flex flex-col md:flex-row justify-center items-center px-4 gap-4 lg:gap-10
     }
 }
+
+:root{
+  --primary-color:#FF1C44 ;
+}
+
+
+/* Layout */
+
 .max-w-screen{
     max-width: 1200px;
     margin: auto;
+    min-height: 100vh;
 }
+
+
+/* Colors */
+.bg-primary {
+  background: var(--primary-color);
+}
+
+.cl-primary {
+  color :var(--primary-color);
+}
+
+
+/* Background images */
+
 .bg-image-cover{
     background: url("assets/bg_thanks.avif");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
-
 .bg-image-cover-city{
   background: url("assets/bg_city.avif");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50%;
 }
+
+/* Positions */
 .position-50{
     margin: 0;
     position: absolute;
@@ -56,4 +80,20 @@
     /* -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     transform: translateX(-50%); */
+}
+
+
+/* Custom tabs */
+div[data-slot="base"] {
+  display: flex;
+  flex-direction: column;
+}
+
+div[data-slot="base"] > div > button[data-slot="tab"] {
+  min-height: 48px;
+  padding: 0 4px;
+}
+
+div[data-slot="base"] > div > button[data-slot="tab"] > span[data-slot="cursor"]{
+  background: var(--primary-color);
 }

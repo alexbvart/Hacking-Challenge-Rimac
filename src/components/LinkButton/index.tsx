@@ -10,7 +10,7 @@ const LinkButton : React.FC<LinkButtonProps> = ( {children, className='rounded-l
 
     return (
             <NUXButton
-                className={`${className} w-48 h-14 bg-rose-600 `}
+                className={`${className} w-48 h-14 bg-primary `}
                 onClick={selectVehicleInsurancePlan}
             >
                 <p className='text-white text-sm font-medium uppercase'>{children}</p>    
