@@ -55,7 +55,7 @@ const CoveragesToggles = () => {
     return (
 
             <Accordion selectionMode="multiple" fullWidth variant='light' className='flex flex-col'>
-                <AccordionItem key="1" aria-label="Accordion 1" title="Llanta robada">
+                <AccordionItem key="1" aria-label="Accordion 1" title="Llanta robada" name='stolenTireAccordionItem' >
                     <Checkbox name='stolenTire'  label='Llanta robada' type='checkbox' onChange={onChangeCheck}  />
                 </AccordionItem>
                 <AccordionItem key="2" aria-label="Accordion 2" title="Choque y/o pasarte la luz roja ">

@@ -10,7 +10,7 @@ const HomePage = () => {
                 >
                     <main className='flex flex-col gap-4'>
                         <span className='f-xs'>¡NUEVO!</span>
-                        <h1 className='f-cta'>Seguro Vehicular <span className='text-rose-500'>Tracking</span></h1>
+                        <h1 className='f-cta'>Seguro Vehicular <span className='cl-primary'>Tracking</span></h1>
                         <p className='f-sm'>Cuéntanos donde le haras seguimiento a tu seguro</p>
                     </main>
                     <div className='w-full bg-image-cover-city'>
