@@ -1,13 +1,14 @@
 import {  Navbar as NUINavbar,   NavbarBrand,   NavbarContent,   NavbarItem } from "@nextui-org/react";
 import RimacSVG from "../Icons/Rimac";
-import {Link} from "@nextui-org/react";
+import { Link } from "react-router-dom";
 import Phone from "../Icons/Phone";
+import {memo} from "react";
 
-const Navbar = () => {
+const NavbarComponent = () => {
   return (
     <NUINavbar>
       <NavbarBrand>
-            <Link href="/">
+            <Link to="/">
                 <RimacSVG/>
             </Link>
       </NavbarBrand>
@@ -24,4 +25,5 @@ const Navbar = () => {
   )
 }
 
+const Navbar = memo(NavbarComponent)
 export default Navbar

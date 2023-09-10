@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-
+import {memo} from 'react'
 const icon = {
   hidden: {
     opacity: 0,
@@ -13,7 +13,7 @@ const icon = {
   }
 };
 
-const RimacSVG = () => (
+const RimacSVGIcon = () => (
   <motion.svg
     xmlns="http://www.w3.org/2000/svg"
     width={99}
@@ -36,4 +36,6 @@ const RimacSVG = () => (
     />
   </motion.svg>
 )
+
+const RimacSVG = memo(RimacSVGIcon)
 export default RimacSVG
