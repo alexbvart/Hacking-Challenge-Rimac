@@ -57,12 +57,15 @@
 /* Background images */
 
 .bg-image-cover{
-    background: url("assets/bg_thanks.avif");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+  min-height: 438px;
+  background: url("assets/bg_thanks.avif");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-width: 100%;
 }
 .bg-image-cover-city{
+  min-height: 280px;
   background: url("assets/bg_city.avif");
   background-size: cover;
   background-repeat: no-repeat;

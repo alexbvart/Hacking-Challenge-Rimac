@@ -2,6 +2,7 @@ import useSWR from 'swr';
 import { ErrorMessage, URL_PUBLIC_API } from '../../../../../utilities/constants';
 import { fetchEndpoint } from '../../../../Home/services/call-endpoint';
 import { useUserStore } from '../../../../../store/userStore';
+import { UserDataMock } from '../../../../../_mocks_/LoginForm.mock';
 
 
 const UserName = () => {
@@ -10,7 +11,8 @@ const UserName = () => {
     const setMailing = useUserStore(state => state.setMailing)
 
     const { data, error, isLoading } = useSWR(URL_PUBLIC_API, fetchEndpoint, {
-        suspense: true
+        suspense: true,
+        fallbackData: UserDataMock
     });
 
     
@@ -22,7 +24,7 @@ const UserName = () => {
 
     return (
         <div className='flex flex-col gap-2 pb-6'>
-            <p className='f-cta'> 
+            <p className={`f-cta ${ isLoading && "animate-pulse rounded-lg"}`}> 
                 ¡Hola 
                 { data && 
                     data.name !== ErrorMessage 
