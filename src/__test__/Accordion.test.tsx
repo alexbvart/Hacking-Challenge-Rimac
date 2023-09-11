@@ -1,6 +1,6 @@
 import {describe, expect, test} from 'vitest'
 import {fireEvent, render, screen} from '@testing-library/react'
-import Accordion from './Accordion'
+import Accordion from '../components/Accordion/Accordion';
 
 describe('<Accordion />', ()=>{
 

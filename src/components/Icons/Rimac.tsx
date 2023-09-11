@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
+import { memo } from 'react'
 
 const icon = {
   hidden: {
     opacity: 0,
     pathLength: 0,
-    fill: "rgba(255, 28, 68, 0)"
+    fill: "rgba(255, 28, 68, 0.1)"
   },
   visible: {
     opacity: 1,
@@ -13,14 +14,14 @@ const icon = {
   }
 };
 
-const RimacSVG = () => (
+const RimacSVGIcon = () => (
   <motion.svg
     xmlns="http://www.w3.org/2000/svg"
     width={99}
     height={16}
     variants={icon}
     viewport={{once: true, amount: 0.5}}
-    transition={{delay: 0.4, duration:0.5}}
+    transition={{delay: 0.1, duration:0.3}}
   >
     <motion.path
       fill="#FF1C44"
@@ -30,10 +31,12 @@ const RimacSVG = () => (
       animate="visible"
       transition={{
         default: { duration: 1, ease: "easeInOut" },
-        fill: { duration: 0.3, ease: [1, 0, 0.8, 1] }
+        fill: { duration: 0.2, ease: [1, 0, 0.8, 1] }
       }}
 
     />
   </motion.svg>
 )
+
+const RimacSVG = memo(RimacSVGIcon)
 export default RimacSVG

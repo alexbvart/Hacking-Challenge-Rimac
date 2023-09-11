@@ -11,7 +11,7 @@ const Hero = () => {
             
             <UserInfo/>
 
-            <Card className="" shadow="sm" radius="sm" >
+            <Card className="h-44" shadow="sm" radius="sm" >
                 <CardBody >
                     <div className="flex relative ">
                         <div className="h-[136px] flex flex-col justify-center gap-2">

@@ -13,7 +13,7 @@ export const LoginFormMockError ={
 
 export const UserDataMock = {
     "id": 4,
-    "name": "Patricia Lebsack Mock",
+    "name": "Patricia Lebsack",
     "username": "Karianne",
     "email": "Julianne.OConner@kory.org",
     "address": {
