@@ -16,8 +16,9 @@ const PlanPage = () => {
             <main className="flex-xy flex-col w-full">
                 <ProcessSteps/>
                 <Hero/>
+                <div className="h-0"> </div>
                 <AmountSection/>
-                <div className="w-full max-w-full  flex flex-col   py-8 gap-4">
+                <div className="w-full max-w-full min-h-fit flex flex-col justify-center py-8 gap-4">
                     <h2 className='f-cta text-xl '>Agrega o quita coberturas</h2>
                     <div className="w-full">
                         <Tabs variant="underlined" disabledKeys={["ProtectThoseAroundYou","ImproveYourPlan"]} fullWidth className="h-16" >
