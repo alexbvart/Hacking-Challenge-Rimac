@@ -2,6 +2,7 @@ import useSWR from 'swr';
 import { ErrorMessage, URL_PUBLIC_API } from '../../../../../utilities/constants';
 import { fetchEndpoint } from '../../../../Home/services/call-endpoint';
 import { useUserStore } from '../../../../../store/userStore';
+import { UserDataMock } from '../../../../../_mocks_/LoginForm.mock';
 
 const UserName = () => {
     
@@ -10,7 +11,7 @@ const UserName = () => {
 
     const { data, error, isLoading } = useSWR(URL_PUBLIC_API, fetchEndpoint, {
         suspense: true,
-        // fallbackData: UserDataMock
+        fallbackData: UserDataMock
     });
 
     
